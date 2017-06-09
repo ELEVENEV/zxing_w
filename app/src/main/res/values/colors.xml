@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1B9ADE</color>
+    <color name="colorPrimaryDark">#1887C3</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="head_background">#DE601B</color>
+    <color name="myavtivity_text_pressed">#1b9ade</color>
+    <color name="myactivitytext_normal">#696969</color>
+    <color name="holo_blue_dark">#ff0099cc</color>
+    <color name="material_lightblue_500">#ff03a9f4</color>
+    <color name="material_lightblue_700">#ff0288d1</color>
+    <color name="material_teal_500">#ff009688</color>
+    <color name="material_yellow_500">#ffffeb3b</color>
+    <color name="material_pink_500">#ffe91e63</color>
+</resources>
