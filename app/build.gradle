@@ -7,8 +7,8 @@ android {
         applicationId "com.example.startpage1"
         minSdkVersion 19
         targetSdkVersion 25
-        versionCode 5
-        versionName "1.0"
+        versionCode 4
+        versionName "1.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         testApplicationId 'com.example.startpage01'
 
@@ -117,7 +117,7 @@ dependencies {
     //其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.2.0
     compile 'com.tencent.bugly:nativecrashreport:latest.release'
     //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.2.0
-    compile files('build/intermediates/exploded-aar/in.srain.cube/cube-sdk/1.0.44.39-SNAPSHOT/jars/classes.jar')
+//    compile files('build/intermediates/exploded-aar/in.srain.cube/cube-sdk/1.0.44.39-SNAPSHOT/jars/classes.jar')
 }
 
 // 依赖插件脚本

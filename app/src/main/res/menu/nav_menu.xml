@@ -24,6 +24,10 @@
             android:icon="@drawable/icon_task"
             android:title="@string/icon_task"/>
 
+        <item
+            android:id="@+id/app_updata"
+            android:icon="@drawable/icon_task"
+            android:title="Check updata"/>
     </group>
 
 </menu>

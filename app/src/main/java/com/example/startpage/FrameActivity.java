@@ -1,9 +1,10 @@
 package com.example.startpage;
 
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -16,9 +17,11 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Toast;
 
 import com.example.startpage.myfragment.FruitAdapter;
+import com.tencent.bugly.beta.Beta;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,30 +49,32 @@ public class FrameActivity extends AppCompatActivity{
 
     private FruitAdapter adapter;
     private SwipeRefreshLayout swipeRefresh;
+    private Menu menu;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-//        StatusBarUtils.setColor(this,  getResources().getColor(R.color.colorAccent));
+        setContentView(R.layout.activity_test);
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
-//        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_test);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
+        StatusBarUtils.setColor(this,  getResources().getColor(R.color.myactivitytext_normal));
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Snackbar.make(view,"Date delete",Snackbar.LENGTH_SHORT)
-                        .setAction("Undo",new View.OnClickListener(){
-                    public void onClick(View v){
-                        Toast.makeText(FrameActivity.this,"Date restored",Toast.LENGTH_SHORT).show();
-
-                    }
-                }).show();
+                loadAppInfo();
+                Beta.checkUpgrade();
+//                Snackbar.make(view,"Date delete",Snackbar.LENGTH_SHORT)
+//                        .setAction("Undo",new View.OnClickListener(){
+//                    public void onClick(View v){
+//                        loadAppInfo();
+//                        Beta.checkUpgrade();
+//                        Toast.makeText(FrameActivity.this,"Date restored",Toast.LENGTH_SHORT).show();
+//
+//                    }
+//                }).show();
             }
         });
 
@@ -105,7 +110,6 @@ public class FrameActivity extends AppCompatActivity{
         });
     }
 
-
     private void refreshFruits(){
         new Thread(new Runnable() {
             @Override
@@ -138,25 +142,37 @@ public class FrameActivity extends AppCompatActivity{
 
 
     public boolean onCreateOptionsMenu(Menu menu){
+        super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate(R.menu.toolbar,menu);
+        this.menu = menu;
         return true;
     }
 
-
+    @Override
     public  boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
             case android.R.id.home:
                 mDrawerLayout.openDrawer(GravityCompat.START);
                 break;
 
+            case R.id.app_updata:
+                Toast.makeText(this,"点击更新",Toast.LENGTH_SHORT).show();
+                loadAppInfo();
+                Beta.checkUpgrade();
             default:
-        }return true;
+        }return super.onOptionsItemSelected(item);
     }
+
     public boolean onOptionsItemSelected(Menu menu){
         switch(item.getItemId()){
         case R.id.backup:
             Toast.makeText(this,"You click Backup",Toast.LENGTH_SHORT).show();
         break;
+            case R.id.updata:
+                Toast.makeText(this,"You click Updata",Toast.LENGTH_SHORT).show();
+//                loadAppInfo();
+                Beta.checkUpgrade();
+                break;
             case R.id.delete:
                 Toast.makeText(this,"You click Delete",Toast.LENGTH_SHORT).show();
                 break;
@@ -165,7 +181,7 @@ public class FrameActivity extends AppCompatActivity{
                 break;
         default:
         }
-        return true;
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -181,4 +197,20 @@ public class FrameActivity extends AppCompatActivity{
         return super.dispatchKeyEvent(event);
     }
 
+    private void loadAppInfo() {
+        try {
+            StringBuilder info = new StringBuilder();
+            PackageInfo packageInfo =
+                    this.getPackageManager().getPackageInfo(this.getPackageName(),
+                            PackageManager.GET_CONFIGURATIONS);
+            int versionCode = packageInfo.versionCode;
+            String versionName = packageInfo.versionName;
+            info.append("appid: ").append(MyApplicationLike.APP_ID).append(" ")
+                    .append("channel: ").append(MyApplicationLike.APP_CHANNEL).append(" ")
+                    .append("version: ").append(versionName).append(".").append(versionCode);
+//            appInfoTv.setText(info);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
