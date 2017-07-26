@@ -1,5 +1,6 @@
 package com.example.startpage;
 
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -17,7 +18,6 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.Toast;
 
 import com.example.startpage.myfragment.FruitAdapter;
@@ -54,12 +54,12 @@ public class FrameActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         setContentView(R.layout.activity_test);
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
-        StatusBarUtils.setColor(this,  getResources().getColor(R.color.myactivitytext_normal));
+        StatusBarUtils.setColor(this,  getResources().getColor(R.color.colorPrimary));
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,7 +93,7 @@ public class FrameActivity extends AppCompatActivity{
         }
         navView.setCheckedItem(R.id.nav_call);
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener(){
-            public boolean onNavigationItemSelected(MenuItem item){
+            public boolean onNavigationItemSelected( MenuItem item){
                     mDrawerLayout.closeDrawers();
                 return true;
             }
@@ -140,17 +140,22 @@ public class FrameActivity extends AppCompatActivity{
         }
     }
 
-
-    public boolean onCreateOptionsMenu(Menu menu){
-        super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.toolbar,menu);
-        this.menu = menu;
-        return true;
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public  boolean onOptionsItemSelected(MenuItem item){
-        switch (item.getItemId()){
+        int id = item.getItemId();
+        switch (id){
+
+            case R.id.id_cation_info:
+                startActivity(new Intent(FrameActivity.this,InfoActivity.class));
+                return true;
+
+
             case android.R.id.home:
                 mDrawerLayout.openDrawer(GravityCompat.START);
                 break;
@@ -159,6 +164,8 @@ public class FrameActivity extends AppCompatActivity{
                 Toast.makeText(this,"点击更新",Toast.LENGTH_SHORT).show();
                 loadAppInfo();
                 Beta.checkUpgrade();
+                break;
+
             default:
         }return super.onOptionsItemSelected(item);
     }
@@ -168,16 +175,13 @@ public class FrameActivity extends AppCompatActivity{
         case R.id.backup:
             Toast.makeText(this,"You click Backup",Toast.LENGTH_SHORT).show();
         break;
-            case R.id.updata:
+            case R.id.id_cation_info:
                 Toast.makeText(this,"You click Updata",Toast.LENGTH_SHORT).show();
 //                loadAppInfo();
                 Beta.checkUpgrade();
                 break;
             case R.id.delete:
                 Toast.makeText(this,"You click Delete",Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.setting:
-                Toast.makeText(this,"You click Setting",Toast.LENGTH_SHORT).show();
                 break;
         default:
         }

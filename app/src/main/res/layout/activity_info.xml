@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="290dp"
+            android:fitsSystemWindows="true"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:collapsedTitleTextAppearance="@style/ToolBar.TitleText"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleTextAppearance="@style/CollapsingToolbarTitleStyle.About"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="290dp"
+                android:fitsSystemWindows="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/top_header">
+
+                    <ImageView
+                        android:id="@+id/vip_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="85dp"
+                        android:src="@drawable/logo_app_small"/>
+
+                    <LinearLayout
+                        android:id="@+id/vip_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/vip_image"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="鹰视眼镜"
+                            android:textColor="@android:color/white"
+                            android:textSize="22sp"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_version"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/vip_layout"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="3dp"
+                        android:text="版本：1.3.3"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp"/>
+                </RelativeLayout>
+
+            </FrameLayout>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:minHeight="?attr/actionBarSize"
+                app:contentInsetStart="30dp"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/Theme.AppCompat.Light"
+                app:titleTextAppearance="@style/ToolBar.TitleText">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="关于眼镜"
+                    android:textColor="@android:color/white"
+                    android:visibility="gone"
+                    android:textSize="16sp"/>
+
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_load"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_comment"
+        app:layout_anchor="@id/header"
+        app:layout_anchorGravity="bottom|end">
+
+    </android.support.design.widget.FloatingActionButton>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="介绍与帮助"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:autoLink="web"
+                    android:text="@string/about_introduce"
+                    android:textColor="@android:color/darker_gray"
+                    android:textIsSelectable="true"
+                    android:textSize="14sp"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="12dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="语音控制"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:autoLink="web"
+                    android:text="@string/about_introduce"
+                    android:textColor="@android:color/darker_gray"
+                    android:textIsSelectable="true"
+                    android:textSize="14sp"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="12dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="蓝牙电话"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:autoLink="web"
+                    android:text="@string/about_introduce"
+                    android:textColor="@android:color/darker_gray"
+                    android:textIsSelectable="true"
+                    android:textSize="14sp"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="12dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="照片同步"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:autoLink="web"
+                    android:text="@string/about_introduce"
+                    android:textColor="@android:color/darker_gray"
+                    android:textIsSelectable="true"
+                    android:textSize="14sp"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="12dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="远程直播"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:autoLink="web"
+                    android:text="@string/about_introduce"
+                    android:textColor="@android:color/darker_gray"
+                    android:textIsSelectable="true"
+                    android:textSize="14sp"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+
+</android.support.design.widget.CoordinatorLayout>

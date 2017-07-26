@@ -45,4 +45,25 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1dp</item>
     </style>
+
+    <style name="CollapsingToolbarTitleStyle.About" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@android:color/transparent</item>
+    </style>
+
+    <!--ToolBar TextSize style-->
+    <style name="ToolBar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="MainTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+
+    </style>
+
+    <style name="MainTheme.Fullscreen" parent="MainTheme">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
 </resources>

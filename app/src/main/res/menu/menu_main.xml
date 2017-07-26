@@ -6,20 +6,17 @@
         android:icon="@drawable/icon_left"
         android:title="Backup"
         app:showAsAction="always" />
-    <item
-        android:id="@+id/updata"
-        android:icon="@drawable/icon_settings"
-        android:title="Updata"
-        app:showAsAction="always" />
+
     <item
         android:id="@+id/delete"
         android:icon="@drawable/icon_trash"
         android:title="Delete"
-        />
+        app:showAsAction="always"/>
+
     <item
-        android:id="@+id/setting"
-        android:icon="@drawable/icon_settings"
-        android:title="Setting"
-        app:showAsAction="never" />
+        android:id="@+id/id_cation_info"
+        android:icon="@drawable/icon_info"
+        android:title="Updata"
+        app:showAsAction="always" />
 
 </menu>

@@ -5,4 +5,13 @@
     <string name="icon_location">Location</string>
     <string name="icon_mail">Mail</string>
     <string name="icon_task">Task</string>
+
+
+    <string name="about_version">1.0</string>
+
+    <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+
+    <string name="about_introduce">「鹰视眼镜」- 用镜头记录我们不善言说的青春。\n\n开源是必须的，软件采用RxJava + Retrofit + OkHttp框架实现，喜欢的朋友请Star，欢迎一起学习讨论。\n\n你的支持将是我最大的动力与褒奖！</string>
+
+
 </resources>
