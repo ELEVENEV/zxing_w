@@ -30,9 +30,9 @@
             android:title="Check updata"/>
 
         <item
-            android:id="@+id/app_updata"
+            android:id="@+id/feed_back"
             android:icon="@drawable/icon_task"
-            android:title="Check updata"/>
+            android:title="Feed Back"/>
 
     </group>
 

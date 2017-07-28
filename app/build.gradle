@@ -114,7 +114,11 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     compile 'com.trello:rxlifecycle-components:0.6.1'
 
-
+    compile files('libs/commons-codec-1.10.jar')
+    compile(name: 'alicloud-android-feedback-3.1.0', ext: 'aar')
+    compile files('libs/app-monitor-sdk-2.5.1.1_for_bc_proguard.jar')
+    compile files('libs/utdid4all-1.1.5.3_proguard.jar')
+    compile files('libs/alicloud-android-utils-1.0.3.jar')
 
 
     // 多dex配置
