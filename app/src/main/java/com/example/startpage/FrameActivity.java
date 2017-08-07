@@ -47,11 +47,13 @@ public class FrameActivity extends AppCompatActivity{
     private DrawerLayout mDrawerLayout;
 
     private boolean isGetting = false;
+    private boolean isOpen = false;
+
     private static final int CAMERA_PERMISSIONS = 1;
     private static final int STORAGE_AND_CAMERA_PERMISSIONS = 2;
     private Handler handler = new Handler(Looper.getMainLooper());
 
-    private boolean isOpen = false;
+
 
     private Fruit[]fruits = {new Fruit("Apple",R.drawable.apple),new Fruit("Banana",R.drawable.banana),
             new Fruit("Orange",R.drawable.orange), new Fruit("Watermelon", R.drawable.watermelon),
@@ -176,17 +178,20 @@ public class FrameActivity extends AppCompatActivity{
 
             case R.id.id_cation_info:
                 startActivity(new Intent(FrameActivity.this,InfoActivity.class));
-                return true;
+                break;
 
 
             case android.R.id.home:
                 mDrawerLayout.openDrawer(GravityCompat.START);
                 break;
 
-            case R.id.app_updata:
-                Toast.makeText(this,"点击更新",Toast.LENGTH_SHORT).show();
+            case R.id.delete:
+//                Toast.makeText(this,"点击更新",Toast.LENGTH_SHORT).show();
                 loadAppInfo();
                 Beta.checkUpgrade();
+                break;
+            case R.id.app_help:
+                startActivity(new Intent(FrameActivity.this,AppHelpActivity.class));
                 break;
 
             default:

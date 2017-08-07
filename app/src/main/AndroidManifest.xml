@@ -74,7 +74,13 @@
             android:name=".InfoActivity"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait">
+        </activity>
 
+        <activity
+            android:name=".AppHelpActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

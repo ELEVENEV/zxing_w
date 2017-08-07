@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#1B9ADE</color>
+    <color name="colorPrimary">#1b9ade</color>
     <color name="colorPrimaryDark">#1887C3</color>
     <color name="colorAccent">#FF4081</color>
     <color name="head_background">#DE601B</color>
@@ -12,4 +12,10 @@
     <color name="material_teal_500">#ff009688</color>
     <color name="material_yellow_500">#ffffeb3b</color>
     <color name="material_pink_500">#ffe91e63</color>
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="windowBackground">#FFFFFF</color>
+    <color name="navigationBarColor">#000000</color>
+    <color name="white">#eeeeee</color>
+    <color name="gray">#f0f0f0</color>
+    <color name="helptextcolor">#969696</color>
 </resources>

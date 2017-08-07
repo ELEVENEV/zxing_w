@@ -14,9 +14,16 @@
         app:showAsAction="always"/>
 
     <item
+        android:id="@+id/app_help"
+        android:icon="@drawable/icon_mail"
+        android:title="Help"
+        app:showAsAction="always" />
+
+    <item
         android:id="@+id/id_cation_info"
         android:icon="@drawable/icon_info"
         android:title="Updata"
         app:showAsAction="always" />
+
 
 </menu>

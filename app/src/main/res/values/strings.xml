@@ -11,7 +11,105 @@
 
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
 
-    <string name="about_introduce">「鹰视眼镜」- 用镜头记录我们不善言说的青春。\n\n开源是必须的，软件采用RxJava + Retrofit + OkHttp框架实现，喜欢的朋友请Star，欢迎一起学习讨论。\n\n你的支持将是我最大的动力与褒奖！</string>
+    <string name="about_introduce1">
+                          1.1 开关机\n
+                          长按开关机键3s后开机，红灯快闪，进入系统停顿5s后熄灭，听到鹰视为您服务，开机完成。\n</string>
+    <string name="about_introduce2">
+                          1.2 语音识别\n
+                          在眼镜开机状态下，使用“灵犀、灵犀”命令唤醒眼镜的语音助手，在听到滴的一声之后向眼镜下达命令，即可语音控制眼镜。\n
+                          通过以下命令实现眼镜的相应操作:\n
+      “拍照” 语音控制眼镜拍照\n  “录像” 语音控制眼镜录像\n  “打电话给 X X X” 语音控制眼镜打电话给通讯录里面的某人\n
+        “关闭语音助手” 关闭眼镜端的语音助手\n “关机” 语音控制眼镜关机\n  “重新启动” 语音控制眼镜重启 \n  “增大音量”语音控制增大眼镜端的音量\n
+        “减小音量”语音控制减小眼镜端的音量\n  “解绑”语音控制解除眼镜与手机的绑定\n</string>
+    <string name="about_introduce3">
+                          1.3 拍照\n
+                          在触控区域从后往前划一下\n
+                          或者使用语音命令（“灵犀、灵犀”唤醒语音助手，在听到滴的一声之后，再说“拍照”）\n</string>
+    <string name="about_introduce4">
+                          1.4 录像\n
+                          在触控区域连续从后往前划两下\n
+                          或者使用语音命令（“灵犀、灵犀”唤醒语音助手，在听到滴的一声之后，再说“录像”）\n
+                          在触控区域从前往后划一下退出录像\n</string>
+    <string name="about_introduce5">
+                          1.5 接打电话\n
+                          使用语音命令（“灵犀、灵犀”唤醒语音助手，在听到滴的一声之后，再说“打电话给XXX”）\n
+                          或者直接用手机拨号，眼镜端一样可以接听\n
+                          在触控区域从后往前划一下接听电话\n
+                          在触控区域从前往后划一下挂断电话\n</string>
+    <string name="about_introduce6">
+                          1.6 听音乐\n
+                          打开手机的音乐播放器播放音乐\n
+                          在听音乐时，确保打开蓝牙，最好关闭手机与眼镜的wifi同步\n</string>
+    <string name="about_introduce7">
+                          1.7 直播\n
+                          本地直播：可在手机端实时看到眼镜端的画面\n
+                          远程直播：打开设置界面，找到WLAN同步，选择一个信号最稳定的wifi连接成功，打开远程直播界面，输入正确的UID，填入昵称
+                          选择适当的带宽，即可开始直播\n
+                          如果分享给别人了自己的UID，别人在此界面输入您的UID，就能看到您所直播的画面内容，反之，如果您有别人的UID，
+                          也能观看别人的直播画面\n</string>
+    <string name="about_introduce8">
+                          1.8 行车记录\n
+                          如果打开了行车记录功能，在您一直录像的过程中，如果出现内存不足时，会自动覆盖早期的录像\n</string>
+    <string name="about_introduce9">
+                          2.1 绑定眼镜与解绑\n
+                          绑定眼镜：绑定时，需要允许手机开启蓝牙，然后可通过扫描包装盒上的二维码或者直接点击搜索绑定进行绑定\n
+                          如果您在第一次时没有进行连接，您也可以在主界面点击绑定眼镜来进入绑定眼镜界面。\n
+                          解除绑定：如果您在进行智能眼镜与手机绑定时，多次提示“未发现鹰视眼镜”，可长按触摸板解除绑定，再次尝试重新绑定；
+                          或者您在不需要手机辅助眼镜的时候，可以通过在app主界面解除手机与眼镜的绑定，以达到节约电量的目的。\n</string>
+    <string name="about_introduce10">
+                          2.2 预览照片和视频\n
+                          本地照片：顾名思义就是浏览之前从眼镜端下载下来的照片，只要是下载过的照片，不需要连接眼镜也能浏览、分享、删除和编辑（取决于您手机自带图片浏览器的功能）\n
+                          镜端照片：在进入本地照片界面之后，点击菜单栏眼镜图标（如果没有开启wifi热点，请点击现在开启，然后开启便携式WLAN热点）
+                          就可以浏览您的眼镜所拍的照片了，然后可以选取您中意的照片下载到本地，分享给您身边的朋友。 \n
+                          本地视频：顾名思义就是浏览之前从眼镜端下载下来的视频，只要是下载过的视频，不需要连接眼镜也能播放、分享、删除 \n
+                          镜端视频：在进入本地视频界面之后，点击菜单栏眼镜图标（如果没有开启wifi热点，请点击现在开启，然后开启便携式WLAN热点）
+                          就可以浏览您的眼镜所拍的视频了，然后可以选取您所拍摄的视频下载到本地，分享给您身边的朋友。
+                         （小贴士：在镜端是不能直接播放所拍摄的视频的） \n</string>
+    <string name="about_introduce11">
+                          2.3 分享\n
+                          你所拍摄的图片或者视频可以分享到各大社交平台，比如可以分享到微博 @鹰视通达科技 或者加上话题 #鹰视眼镜#
+                          将您新鲜独特神奇的创作分享给大众，我们会不定期在其中抽选一些作品进行奖励，并送上我们的礼品。\n</string>
+    <string name="about_introduce12">
+                          2.4 音量调节\n
+                          如果您觉得眼镜的音量不合适，你可以通过语音命令（灵犀、灵犀唤醒语音助手，在听到滴的一声之后向眼镜下达命令，“增大音量”“减小音量”）
+                          来增大或减小音量或者您也可以在设置里面通过音量调节来调整一个合适的音量。\n
+                          在听音乐、打电话或者语音时可以通过手机的音量键来增大减小音量。\n</string>
+    <string name="about_introduce13">
+                          2.5 WLAN同步\n
+                          同步热点：如果您要浏览眼镜端所拍的照片或者视频时，请打开主界面的同步热点命令。
+                          （使手机和眼镜通过wifi直连，下载时不会消耗您的数据流量）\n
+                          WLAN同步：如果您需要开启直播里面的远程直播，请打开设置里面的WLAN同步，选择一个
+                          信号最好的wifi连接,连接成功后，即可开始直播。\n</string>
+    <string name="about_introduce14">
+                          2.6 分段时长\n
+                          连续录像时保存的单个录像文件的长度，有5/10/20/30/无限制五种分段，默认是无限制。\n</string>
+    <string name="about_introduce15">
+                          2.7 水印效果\n
+                          智能眼镜首次开机使用拍照或者录像时，会默认打上时间水印，如果您不需要水印效果，可以在这里关闭。\n</string>
+    <string name="about_introduce16">
+                          2.8 语言设置\n
+                          智能眼镜端的语言会自动根据手机系统的语言变换（目前只支持中文/英文）\n</string>
+    <string name="about_introduce17">
+                          3.1 使用帮助与反馈\n
+                          如果您在使用眼镜的过程中，遇到问题或者您对我们的产品有好的建议，您可以在app的“关于app”里面的“帮助与反馈”，
+                          把问题和重要的信息反馈给我们，我们会及时提供帮助，在此非常感谢您提供的宝贵意见。\n</string>
+    <string name="about_introduce18">
+                          3.2 客服通道\n
+                          公司名称： 广东南海鹰视通达科技有限公司\n
+                          客服热线： 0757-81280656\n
+                          邮箱地址： ystd2016@163.com\n
+                          公司地址： 广东省佛山市南海区桂城街道永安北路2号金谷智创产业社区A座第六层605室\n</string>
+    <string name="child1">1.进行学习，顺便自己记录一下，以便加深理解。我们都知道android 3.0以后google官方推出了ActionBar的工具栏控件，但是虽然是官方的东西，却存在着不少的限制如,无法定制文字或者控制图片间距之类，不过现在我们已经看到曙光在招手了，2014年的IO大会上google推荐了让android开发者眼前一亮的Material design 设计语言，为此android 5.0系统官方提供了ToolBar，并且提供了supprot library用于向下兼容。ToolBar 可以说是一个升级版</string>
+    <string name="child2">2.进行学习，顺便自己记录一下，以便加深理解。我们都知道android 3.0以后google官方推出了ActionBar的工具栏控件，但是虽然是官方的东西，却存在着不少的限制如,无法定制文字或者控制图片间距之类，不过现在我们已经看到曙光在招手了，2014年的IO大会上google推荐了让android开发者眼前一亮的Material design 设计语言，为此android 5.0系统官方提供了ToolBar，并且提供了supprot library用于向下兼容。ToolBar 可以说是一个升级版</string>
+    <string name="child3">3.进行学习，顺便自己记录一下，以便加深理解。我们都知道android 3.0以后google官方推出了ActionBar的工具栏控件，但是虽然是官方的东西，却存在着不少的限制如,无法定制文字或者控制图片间距之类，不过现在我们已经看到曙光在招手了，2014年的IO大会上google推荐了让android开发者眼前一亮的Material design 设计语言，为此android 5.0系统官方提供了ToolBar，并且提供了supprot library用于向下兼容。ToolBar 可以说是一个升级版</string>
+    <string name="child4">4.进行学习，顺便自己记录一下，以便加深理解。我们都知道android 3.0以后google官方推出了ActionBar的工具栏控件，但是虽然是官方的东西，却存在着不少的限制如,无法定制文字或者控制图片间距之类，不过现在我们已经看到曙光在招手了，2014年的IO大会上google推荐了让android开发者眼前一亮的Material design 设计语言，为此android 5.0系统官方提供了ToolBar，并且提供了supprot library用于向下兼容。ToolBar 可以说是一个升级版</string>
+    <string name="child5">5.进行学习，顺便自己记录一下，以便加深理解。我们都知道android 3.0以后google官方推出了ActionBar的工具栏控件，但是虽然是官方的东西，却存在着不少的限制如,无法定制文字或者控制图片间距之类，不过现在我们已经看到曙光在招手了，2014年的IO大会上google推荐了让android开发者眼前一亮的Material design 设计语言，为此android 5.0系统官方提供了ToolBar，并且提供了supprot library用于向下兼容。ToolBar 可以说是一个升级版</string>
+
+    <string name="header_child1">App设备连接时，搜索不到设备蓝牙,或者是多次连接都连接不上1</string>
+    <string name="header_child2">App设备连接时，搜索不到设备蓝牙,或者是多次连接都连接不上2</string>
+    <string name="header_child3">App设备连接时，搜索不到设备蓝牙,或者是多次连接都连接不上3</string>
+    <string name="header_child4">App设备连接时，搜索不到设备蓝牙,或者是多次连接都连接不上4</string>
+    <string name="header_child5">App设备连接时，搜索不到设备蓝牙,或者是多次连接都连接不上5</string>
 
 
 </resources>

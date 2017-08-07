@@ -66,4 +66,19 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+    <style name="MyToolbar" parent="Base.Widget.AppCompat.Toolbar">
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <!--Toolbar标题颜色-->
+        <item name="titleTextColor">@color/white</item>
+        <!--ActionBar默认按钮的颜色-->
+        <item name="colorControlNormal">@color/white</item>
+        <!--子控件相对父控件位置-->
+        <item name="android:gravity">center</item>
+        <!--NavigationButton-->
+        <item name="toolbarNavigationButtonStyle">@style/Widget.AppCompat.Toolbar.Button.Navigation</item>
+
+    </style>
+
 </resources>
