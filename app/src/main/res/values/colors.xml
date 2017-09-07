@@ -18,4 +18,25 @@
     <color name="white">#eeeeee</color>
     <color name="gray">#f0f0f0</color>
     <color name="helptextcolor">#969696</color>
+    <color name="base_dialog_bg">#80000000</color>
+    <color name="color_white">#FFFFFF</color>
+
+    <!-- 标题强调文字-->
+    <color name="baseGrayMore">#464646</color>
+    <!-- 正文主要文字-->
+    <color name="baseGrayNor">#656565</color>
+
+    <color name="baseGrayLit">#cdcdcd</color>
+
+    <color name="light_red">#f6a6c1</color>
+
+    <!-- 纯白 -->
+    <color name="ctv_white">@color/color_white</color>
+    <!-- 淡黑色 -->
+    <color name="ctv_black_2">@color/baseGrayMore</color>
+    <!-- 灰色 -->
+    <color name="ctv_black_3">@color/baseGrayNor</color>
+    <!-- 淡灰色 -->
+    <color name="ctv_black_4">@color/baseGrayLit</color>
+
 </resources>

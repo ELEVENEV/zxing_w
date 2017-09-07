@@ -2,9 +2,11 @@ package com.example.startpage;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -24,6 +26,8 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.sdk.android.feedback.impl.FeedbackAPI;
@@ -35,13 +39,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import butterknife.BindView;
+
+import static android.R.attr.key;
+
 /**
  * Created by Administrator on 2017/4/27 0027.
  */
 
-public class FrameActivity extends AppCompatActivity{
+public class FrameActivity extends AppCompatActivity implements View.OnClickListener{
 
 
+    private Context mContext;
     private MenuItem item;
 
     private DrawerLayout mDrawerLayout;
@@ -67,6 +76,13 @@ public class FrameActivity extends AppCompatActivity{
     private FruitAdapter adapter;
     private SwipeRefreshLayout swipeRefresh;
     private Menu menu;
+
+    @BindView(R.id.circle_img_header)
+    ImageView rbImage;
+    @BindView(R.id.tv_name)
+    TextView mTvName;
+    @BindView(R.id.tv_mobile)
+    TextView mTvMobile;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -117,7 +133,12 @@ public class FrameActivity extends AppCompatActivity{
                     isOpen = true;
                     checkForOpenOrGet(true);
                 break;
-                default:
+                    case R.id.weibo:
+                        startActivity(new Intent(FrameActivity.this,WeiboActivity.class));
+                break;
+                    case R.id.nav_mail:
+                        joinQQGroup("I7-c3WNgpCT_IfHtwOayfHgVIQA4W492");
+                    default:
                 break;
                 }
                 return true;
@@ -133,6 +154,40 @@ public class FrameActivity extends AppCompatActivity{
                 refreshFruits();
             }
         });
+    }
+
+    public void initUI(View view){
+        rbImage.setOnClickListener((View.OnClickListener) this);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.circle_img_header:
+//                startActivity(new Intent(mContext,PersonalInfoActivity.class));
+        }
+    }
+
+    /****************
+     *
+     * 发起添加群流程。群号：test(573780249) 的 key 为： I7-c3WNgpCT_IfHtwOayfHgVIQA4W492
+     * 调用 joinQQGroup(I7-c3WNgpCT_IfHtwOayfHgVIQA4W492) 即可发起手Q客户端申请加群 test(573780249)
+     *
+     * @param key 由官网生成的key
+     * @return 返回true表示呼起手Q成功，返回fals表示呼起失败
+     ******************/
+    public boolean joinQQGroup(String key) {
+        Intent intent = new Intent();
+        intent.setData(Uri.parse("mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Ffrom%3Dapp%26p%3Dandroid%26k%3D" + key));
+        // 此Flag可根据具体产品需要自定义，如设置，则在加群界面按返回，返回手Q主界面，不设置，按返回会返回到呼起产品界面    //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        try {
+            startActivity(intent);
+            return true;
+        } catch (Exception e) {
+            // 未安装手Q或安装的版本不支持
+            return false;
+        }
     }
 
     private void refreshFruits(){
@@ -179,7 +234,6 @@ public class FrameActivity extends AppCompatActivity{
             case R.id.id_cation_info:
                 startActivity(new Intent(FrameActivity.this,InfoActivity.class));
                 break;
-
 
             case android.R.id.home:
                 mDrawerLayout.openDrawer(GravityCompat.START);
@@ -305,4 +359,6 @@ public class FrameActivity extends AppCompatActivity{
             }
         }, 500);
     }
+
+
 }

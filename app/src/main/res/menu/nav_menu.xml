@@ -32,7 +32,12 @@
         <item
             android:id="@+id/feed_back"
             android:icon="@drawable/icon_task"
-            android:title="Feed Back"/>
+            android:title="用户反馈"/>
+
+        <item
+            android:id="@+id/weibo"
+            android:icon="@drawable/icon_mail"
+            android:title="微 博"/>
 
     </group>
 
