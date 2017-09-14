@@ -22,16 +22,23 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.alibaba.sdk.android.feedback.impl.FeedbackAPI;
 import com.alibaba.sdk.android.feedback.util.IUnreadCountCallback;
+import com.example.startpage.NewbieGuide.HighLight;
+import com.example.startpage.NewbieGuide.HoleBean;
+import com.example.startpage.NewbieGuide.NewbieGuide;
 import com.example.startpage.adapter.ExpandableListAdapter;
 import com.tencent.bugly.beta.Beta;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
+
+import static com.example.startpage.R.id.textView;
 
 /**
  * Created by Administrator on 2017/8/1 0001.
@@ -50,6 +57,7 @@ public class AppHelpActivity extends AppCompatActivity{
     private int mGroupPosition;
     private int mChildPosition;
     private Toolbar toolbar;
+    private ImageView imageView;
 
     private boolean isGetting = false;
     private boolean isOpen = false;
@@ -62,8 +70,9 @@ public class AppHelpActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_apphelp);
 
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("App使用帮助");
+        toolbar.setTitle(R.string.using_help);
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
 
@@ -74,6 +83,22 @@ public class AppHelpActivity extends AppCompatActivity{
 //        if (actionBar != null) {
 //            actionBar.setDisplayHomeAsUpEnabled(true);
 //        }
+
+        //新手引导浮层方案二
+        NewbieGuide.with(this)//传入activity
+                .setLabel("guide1")//设置引导层标示，必传！否则报错
+                .addHighLight(toolbar, HighLight.Type.RECTANGLE)//添加需要高亮的view
+                .setLayoutRes(R.layout.view_guide)//自定义的提示layout，不要添加背景色，引导层背景色通过setBackgroundColor()设置
+                .alwaysShow(false)
+                .show();//直接显示引导层
+
+        Locale locale = getResources().getConfiguration().locale;
+        ImageView viewguideiv = (ImageView) findViewById(R.id.iv_guide_view);
+        if (viewguideiv != null && locale.getLanguage().contains("zh")){
+            viewguideiv.setImageResource(R.drawable.view_guide_photo_cn);
+        }else  if(viewguideiv != null){
+            viewguideiv.setImageResource(R.drawable.view_guide_photo_en);
+        }
 
         expandableListView = (ExpandableListView) findViewById(R.id.simple_expandable_listview);
         setItems();//设置数据
@@ -154,6 +179,23 @@ public class AppHelpActivity extends AppCompatActivity{
 //        }
 //        return super.onOptionsItemSelected(item);
 //    }
+
+
+
+    /**
+     * 新手引导浮层实现方案一
+     */
+/*
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if(NewbieGuideManager.isNeverShowed(this, NewbieGuideManager.TYPE_COLLECT)) {
+            new NewbieGuideManager(this, NewbieGuideManager.TYPE_COLLECT)
+                    .addView(toolbar, HoleBean.TYPE_RECTANGLE)
+                    .show();
+        }
+    }*/
+
 
 
     // 设置 headers 和 childs ExpandableListView

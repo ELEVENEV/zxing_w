@@ -2,25 +2,35 @@ package com.example.startpage.NewbieGuide;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Rect;
+import android.content.res.Resources;
+import android.graphics.Point;
+import android.os.Build;
 import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.Display;
+import android.view.KeyCharacterMap;
+import android.view.KeyEvent;
+import android.view.ViewConfiguration;
 
-import java.lang.reflect.Field;
-
+/**
+ * Created by hubert
+ * <p>
+ * Created on 2017/7/27.
+ */
 public class ScreenUtils {
 
     private ScreenUtils() {
         throw new AssertionError();
     }
 
-    public static float dpToPx(Context context, float dp) {
-        if(context == null) {
-            return -1;
-        }
-        return dp * context.getResources().getDisplayMetrics().density;
-    }
-
-    public static int dpToPx(Context context, int dp) {
+    /**
+     * dp单位转成px
+     *
+     * @param context context
+     * @param dp      dp值
+     * @return px值
+     */
+    public static int dp2px(Context context, int dp) {
         return (int) (dp * context.getResources().getDisplayMetrics().density);
     }
 
@@ -37,38 +47,58 @@ public class ScreenUtils {
      */
     public static int getScreenHeight(Context context) {
         DisplayMetrics dm = context.getResources().getDisplayMetrics();
-        int screenHeight = dm.heightPixels;
-        return screenHeight;
+        return dm.heightPixels;
     }
 
     /**
-     * 获取状态栏的高
+     * 获取状态栏高度
      */
-    public static int getStatusBarHeight(Activity context) {
-        Rect frame = new Rect();
-        context.getWindow().getDecorView().getWindowVisibleDisplayFrame(frame);
-        int statusBarHeight = frame.top;
-        if(0 == statusBarHeight) {
-            statusBarHeight = getStatusBarHeightByReflection(context);
-        }
-        return statusBarHeight;
+    public static int getStatusBarHeight(Context context) {
+        // 默认为38
+        int height = 38;
+        //获取status_bar_height资源的ID
+        int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0)
+            height = context.getResources().getDimensionPixelSize(resourceId);
+        Log.e("Hubert", "状态栏的高度:" + height);
+        return height;
     }
 
-    public static int getStatusBarHeightByReflection(Context context) {
-        Class<?> c;
-        Object obj;
-        Field field;
-        // 默认为38，貌似大部分是这样的
-        int x, statusBarHeight = 38;
-        try {
-            c = Class.forName("com.android.internal.R$dimen");
-            obj = c.newInstance();
-            field = c.getField("status_bar_height");
-            x = Integer.parseInt(field.get(obj).toString());
-            statusBarHeight = context.getResources().getDimensionPixelSize(x);
-        } catch (Exception e1) {
-            e1.printStackTrace();
+    /**
+     * 虚拟操作拦（home等）是否显示
+     */
+    public static boolean isNavigationBarShow(Activity activity) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            Display display = activity.getWindowManager().getDefaultDisplay();
+            Point size = new Point();
+            Point realSize = new Point();
+            display.getSize(size);
+            display.getRealSize(realSize);
+            return realSize.y != size.y;
+        } else {
+            boolean menu = ViewConfiguration.get(activity).hasPermanentMenuKey();
+            boolean back = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK);
+            if (menu || back) {
+                return false;
+            } else {
+                return true;
+            }
         }
-        return statusBarHeight;
+    }
+
+    /**
+     * 获取虚拟操作拦（home等）高度
+     */
+    public static int getNavigationBarHeight(Activity activity) {
+        if (!isNavigationBarShow(activity))
+            return 0;
+        int height = 0;
+        Resources resources = activity.getResources();
+        //获取NavigationBar的高度
+        int resourceId = resources.getIdentifier("navigation_bar_height", "dimen", "android");
+        if (resourceId > 0)
+            height = resources.getDimensionPixelSize(resourceId);
+        Log.e("Hubert", "NavigationBar的高度:" + height);
+        return height;
     }
 }
