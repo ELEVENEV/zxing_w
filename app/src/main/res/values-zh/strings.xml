@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Start interface</string>
-    <string name="icon_call">Call</string>
-    <string name="nav_friends">Friends</string>
-    <string name="icon_location">Location</string>
-    <string name="icon_mail">Join us</string>
-    <string name="icon_task">Task</string>
+    <string name="app_name">启动界面</string>
+    <string name="icon_call">电话</string>
+    <string name="icon_location">位置</string>
+    <string name="icon_mail">加入我们</string>
+    <string name="icon_task">任务</string>
+    <string name="nav_friends">朋友</string>
 
 
     <string name="about_version">1.0</string>
-
-    <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
 
     <string name="about_introduce1">
                           1.1 开关机\n
@@ -100,18 +98,17 @@
                           客服热线： 0757-81280656\n
                           邮箱地址： ystd2016@163.com\n
                           公司地址： 广东省佛山市南海区桂城街道永安北路2号金谷智创产业社区A座第六层605室\n</string>
+
     <string name="child1">1.进行学习，顺便自己记录一下，以便加深理解。我们都知道android 3.0以后google官方推出了ActionBar的工具栏控件，但是虽然是官方的东西，却存在着不少的限制如,无法定制文字或者控制图片间距之类，不过现在我们已经看到曙光在招手了，2014年的IO大会上google推荐了让android开发者眼前一亮的Material design 设计语言，为此android 5.0系统官方提供了ToolBar，并且提供了supprot library用于向下兼容。ToolBar 可以说是一个升级版</string>
     <string name="child2">2.进行学习，顺便自己记录一下，以便加深理解。我们都知道android 3.0以后google官方推出了ActionBar的工具栏控件，但是虽然是官方的东西，却存在着不少的限制如,无法定制文字或者控制图片间距之类，不过现在我们已经看到曙光在招手了，2014年的IO大会上google推荐了让android开发者眼前一亮的Material design 设计语言，为此android 5.0系统官方提供了ToolBar，并且提供了supprot library用于向下兼容。ToolBar 可以说是一个升级版</string>
     <string name="child3">3.进行学习，顺便自己记录一下，以便加深理解。我们都知道android 3.0以后google官方推出了ActionBar的工具栏控件，但是虽然是官方的东西，却存在着不少的限制如,无法定制文字或者控制图片间距之类，不过现在我们已经看到曙光在招手了，2014年的IO大会上google推荐了让android开发者眼前一亮的Material design 设计语言，为此android 5.0系统官方提供了ToolBar，并且提供了supprot library用于向下兼容。ToolBar 可以说是一个升级版</string>
     <string name="child4">4.进行学习，顺便自己记录一下，以便加深理解。我们都知道android 3.0以后google官方推出了ActionBar的工具栏控件，但是虽然是官方的东西，却存在着不少的限制如,无法定制文字或者控制图片间距之类，不过现在我们已经看到曙光在招手了，2014年的IO大会上google推荐了让android开发者眼前一亮的Material design 设计语言，为此android 5.0系统官方提供了ToolBar，并且提供了supprot library用于向下兼容。ToolBar 可以说是一个升级版</string>
     <string name="child5">5.进行学习，顺便自己记录一下，以便加深理解。我们都知道android 3.0以后google官方推出了ActionBar的工具栏控件，但是虽然是官方的东西，却存在着不少的限制如,无法定制文字或者控制图片间距之类，不过现在我们已经看到曙光在招手了，2014年的IO大会上google推荐了让android开发者眼前一亮的Material design 设计语言，为此android 5.0系统官方提供了ToolBar，并且提供了supprot library用于向下兼容。ToolBar 可以说是一个升级版</string>
-
     <string name="header_child1">App设备连接时，搜索不到设备蓝牙,或者是多次连接都连接不上1</string>
     <string name="header_child2">App设备连接时，搜索不到设备蓝牙,或者是多次连接都连接不上2</string>
     <string name="header_child3">App设备连接时，搜索不到设备蓝牙,或者是多次连接都连接不上3</string>
     <string name="header_child4">App设备连接时，搜索不到设备蓝牙,或者是多次连接都连接不上4</string>
     <string name="header_child5">App设备连接时，搜索不到设备蓝牙,或者是多次连接都连接不上5</string>
-    <string name="using_help">Using Help</string>
-
+    <string name="using_help">App使用帮助</string>
 
 </resources>
