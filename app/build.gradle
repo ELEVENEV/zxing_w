@@ -114,11 +114,16 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     compile 'com.trello:rxlifecycle-components:0.6.1'
 
+    compile 'com.just.agentweb:agentweb:2.0.1'
+    compile 'com.lcodecorex:tkrefreshlayout:1.0.7'
+
     compile files('libs/commons-codec-1.10.jar')
     compile(name: 'alicloud-android-feedback-3.1.0', ext: 'aar')
     compile files('libs/app-monitor-sdk-2.5.1.1_for_bc_proguard.jar')
     compile files('libs/utdid4all-1.1.5.3_proguard.jar')
     compile files('libs/alicloud-android-utils-1.0.3.jar')
+
+    compile 'com.umeng.analytics:analytics:latest.integration'
 
 
     // 多dex配置
@@ -129,6 +134,8 @@ dependencies {
     compile 'com.tencent.bugly:nativecrashreport:latest.release'
     //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.2.0
 //    compile files('build/intermediates/exploded-aar/in.srain.cube/cube-sdk/1.0.44.39-SNAPSHOT/jars/classes.jar')
+
+    compile 'com.jaeger.statusbarutil:library:1.4.0'
 }
 
 // 依赖插件脚本

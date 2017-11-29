@@ -21,3 +21,14 @@
 
 # 避免影响升级功能，需要keep住support包的类
 -keep class android.support.**{*;}
+-ignorewarnings
+
+-keep class * {
+    public private *;
+}
+
+-keep class com.example.startpage.**
+
+#########zxing##########
+-keep class com.android.** {*;}
+-keep class com.google.** {*;}

@@ -15,7 +15,8 @@ import butterknife.ButterKnife;
 
 public class WeiboActivity extends RxBaseActivity {
 
-    public static final String VIP_URL = "http://weibo.com/u/6004710405?refer_flag=1001030101_";
+    public static final String VIP_URL = "http://vip.bilibili.com/site/vip-faq-h5.html";
+    public static final String VIP_URL1 = "http://vip.bilibili.com";
 
     @BindView(R.id.toolbar)
     Toolbar mtoolbar;
