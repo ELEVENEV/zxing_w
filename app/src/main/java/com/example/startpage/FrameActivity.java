@@ -36,6 +36,7 @@ import com.alibaba.sdk.android.feedback.xblink.view.WebErrorView;
 import com.example.startpage.agentweb.BaseWebActivity;
 import com.example.startpage.agentweb.WebActivity;
 import com.example.startpage.myfragment.FruitAdapter;
+import com.example.startpage.zxing.ScanResultActivity;
 import com.jaeger.library.StatusBarUtil;
 import com.tencent.bugly.beta.Beta;
 
@@ -278,6 +279,9 @@ public class FrameActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.app_help:
                 startActivity(new Intent(FrameActivity.this,AppHelpActivity.class));
+                break;
+            case R.id.id_scan:
+                startActivity(new Intent(FrameActivity.this, ScanResultActivity.class));
                 break;
 
             default:

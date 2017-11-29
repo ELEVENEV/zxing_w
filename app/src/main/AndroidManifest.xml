@@ -98,6 +98,18 @@
             android:screenOrientation="portrait">
         </activity>
 
+        <activity
+            android:name="com.example.startpage.zxing.ScanResultActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name="com.example.startpage.zxing.WebViewActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
+        </activity>
+
     </application>
 
 </manifest>
