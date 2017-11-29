@@ -39,6 +39,11 @@
             android:icon="@drawable/icon_mail"
             android:title="微 博"/>
 
+        <item
+            android:id="@+id/jingdong"
+            android:icon="@drawable/icon_mail"
+            android:title="京 东"/>
+
     </group>
 
 </menu>

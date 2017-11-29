@@ -32,9 +32,14 @@ import android.widget.Toast;
 
 import com.alibaba.sdk.android.feedback.impl.FeedbackAPI;
 import com.alibaba.sdk.android.feedback.util.IUnreadCountCallback;
+import com.alibaba.sdk.android.feedback.xblink.view.WebErrorView;
+import com.example.startpage.agentweb.BaseWebActivity;
+import com.example.startpage.agentweb.WebActivity;
 import com.example.startpage.myfragment.FruitAdapter;
+import com.jaeger.library.StatusBarUtil;
 import com.tencent.bugly.beta.Beta;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -76,6 +81,7 @@ public class FrameActivity extends AppCompatActivity implements View.OnClickList
     private FruitAdapter adapter;
     private SwipeRefreshLayout swipeRefresh;
     private Menu menu;
+    private int mAlpha = StatusBarUtil.DEFAULT_STATUS_BAR_ALPHA;
 
     @BindView(R.id.circle_img_header)
     ImageView rbImage;
@@ -92,7 +98,6 @@ public class FrameActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_test);
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
-        StatusBarUtils.setColor(this,  getResources().getColor(R.color.colorPrimary));
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,6 +141,10 @@ public class FrameActivity extends AppCompatActivity implements View.OnClickList
                     case R.id.weibo:
                         startActivity(new Intent(FrameActivity.this,WeiboActivity.class));
                 break;
+                    case R.id.jingdong:
+                        isOpen = true;
+                        startActivity(new Intent(FrameActivity.this, BaseWebActivity.class));
+                break;
                     case R.id.nav_mail:
                         joinQQGroup("I7-c3WNgpCT_IfHtwOayfHgVIQA4W492");
                     default:
@@ -145,7 +154,13 @@ public class FrameActivity extends AppCompatActivity implements View.OnClickList
             }
 
         });
+        //沉浸式方案二，估计在华为EMUI
+        mToolbar.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        StatusBarUtil.setColorForDrawerLayout(FrameActivity.this, mDrawerLayout,
+                getResources().getColor(R.color.colorPrimary), mAlpha);
 
+        //沉浸式方案一，5.0 以下会有有问题
+//        StatusBarUtils.setColor(this,  getResources().getColor(R.color.colorPrimary));
         swipeRefresh = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
         swipeRefresh.setColorSchemeResources(R.color.colorPrimary);
         swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -224,6 +239,23 @@ public class FrameActivity extends AppCompatActivity implements View.OnClickList
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    // 让菜单同时显示图标和文字
+    @Override
+    public boolean onMenuOpened(int featureId, Menu menu) {
+        if (menu != null) {
+            if (menu.getClass().getSimpleName().equalsIgnoreCase("MenuBuilder")) {
+                try {
+                    Method method = menu.getClass().getDeclaredMethod("setOptionalIconsVisible", Boolean.TYPE);
+                    method.setAccessible(true);
+                    method.invoke(menu, true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return super.onMenuOpened(featureId, menu);
     }
 
     @Override

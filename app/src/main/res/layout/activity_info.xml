@@ -32,6 +32,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/top_header">
 
+
                     <ImageView
                         android:id="@+id/vip_image"
                         android:layout_width="wrap_content"
@@ -39,7 +40,7 @@
                         android:layout_alignParentTop="true"
                         android:layout_centerInParent="true"
                         android:layout_marginTop="85dp"
-                        android:src="@drawable/logo_app_small"/>
+                        android:src="@drawable/logo_app_small" />
 
                     <LinearLayout
                         android:id="@+id/vip_layout"
@@ -55,7 +56,7 @@
                             android:layout_height="wrap_content"
                             android:text="鹰视眼镜"
                             android:textColor="@android:color/white"
-                            android:textSize="18sp"/>
+                            android:textSize="18sp" />
 
                     </LinearLayout>
 
@@ -67,9 +68,9 @@
                         android:layout_centerInParent="true"
                         android:layout_marginTop="3dp"
                         android:text="版本：1.3.3"
-                        android:visibility="gone"
                         android:textColor="@android:color/white"
-                        android:textSize="12sp"/>
+                        android:textSize="12sp"
+                        />
                 </RelativeLayout>
 
             </FrameLayout>
@@ -85,12 +86,16 @@
                 app:titleTextAppearance="@style/ToolBar.TitleText">
 
                 <TextView
+                    android:id="@+id/tv_about"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="关于眼镜"
                     android:textColor="@android:color/white"
-                    android:visibility="gone"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp"
+                    android:layout_marginRight="280dp"
+                    android:visibility="gone"/>
+
+
 
             </android.support.v7.widget.Toolbar>
 
@@ -98,16 +103,14 @@
 
     </android.support.design.widget.AppBarLayout>
 
-
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_load"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:src="@drawable/ic_comment"
-        app:layout_anchor="@id/header"
+        app:layout_anchor="@+id/header"
         app:layout_anchorGravity="bottom|end">
-
     </android.support.design.widget.FloatingActionButton>
 
     <android.support.v4.widget.NestedScrollView
@@ -124,83 +127,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="25dp"
-                android:text="3.关于我们"
-                android:textColor="@android:color/black"
-                android:textSize="18sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:orientation="vertical"
-                android:padding="8dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/image_qq_join"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/weichat_qr_code" />
-
-                    <TextView
-                        android:id="@+id/textView2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="欢迎加入我们的用户QQ群"
-                        android:textAlignment="center" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="286977966"
-                        android:textAlignment="center" />
-
-                </LinearLayout>
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:paddingTop="10dp"
                 android:text="1.眼镜主要功能介绍"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/qr_image"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/weichat_qr_code" />
-
-                <TextView
-                    android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="官方微信公众号"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="135dp" />
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="官方微信公众号"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="155dp" />
-
-            </RelativeLayout>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -455,6 +385,42 @@
                         android:textAlignment="center" />
 
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/image_qq_join"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/weichat_qr_code" />
+
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="欢迎加入我们的用户QQ群"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="286977966"
+                            android:textAlignment="center" />
+
+                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -465,6 +431,5 @@
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
-
 
 </android.support.design.widget.CoordinatorLayout>

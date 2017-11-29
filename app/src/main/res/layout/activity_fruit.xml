@@ -9,9 +9,7 @@
     android:fitsSystemWindows="true"
     tools:context="com.example.startpage.FruitActivity">
 
-
     <android.support.design.widget.AppBarLayout
-
 
         android:id="@+id/appBar"
         android:layout_width="match_parent"

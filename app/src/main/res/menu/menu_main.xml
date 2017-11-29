@@ -1,29 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_search"
+        android:orderInCategory="100"
+        android:icon="@drawable/icon_search"
+        android:title="搜索"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        app:showAsAction="always" />
+
     <item
         android:id="@+id/backup"
         android:icon="@drawable/icon_left"
         android:title="Backup"
-        app:showAsAction="always" />
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/delete"
         android:icon="@drawable/icon_trash"
-        android:title="Delete"
-        app:showAsAction="always"/>
+        android:title="Update"
+        app:showAsAction="never"/>
 
     <item
         android:id="@+id/app_help"
         android:icon="@drawable/icon_mail"
         android:title="Help"
-        app:showAsAction="always" />
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/id_cation_info"
         android:icon="@drawable/icon_info"
-        android:title="Updata"
-        app:showAsAction="always" />
+        android:title="About us"
+        app:showAsAction="never" />
 
+    <item
+        android:id="@+id/id_scan"
+        android:icon="@drawable/icon_scan"
+        android:title="Scan"
+        app:showAsAction="never" />
 
 </menu>
