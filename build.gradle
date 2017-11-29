@@ -11,10 +11,20 @@ buildscript {
         // in the individual module build.gradle files
         classpath "com.tencent.bugly:tinker-support:latest.release"
     }
+
+    ext {
+        compileSdkVersion = 26
+        buildToolsVersion = "26.0.2"
+        minSdkVersion = 19
+        targetSdkVersion = 25
+        supportLibVersion = "26.+"
+    }
 }
 
 allprojects {
     repositories {
+//        google()
+        maven { url 'https://maven.google.com' }
         jcenter()
     }
 }
