@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">启动界面</string>
+    <string name="app_name">书</string>
     <string name="icon_call">电话</string>
     <string name="icon_location">位置</string>
     <string name="icon_mail">加入我们</string>

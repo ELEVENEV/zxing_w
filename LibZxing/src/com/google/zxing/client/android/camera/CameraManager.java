@@ -46,9 +46,11 @@ public final class CameraManager {
 
     private static final int MIN_FRAME_WIDTH = 240;
     private static final int MIN_FRAME_HEIGHT = 240;
-    private static final int MAX_FRAME_WIDTH = 400;
-    private static final int MAX_FRAME_HEIGHT = 600;
+//    private static final int MAX_FRAME_WIDTH = 400;
+//    private static final int MAX_FRAME_HEIGHT = 600;
 
+    private static final int MAX_FRAME_WIDTH = 675;
+    private static final int MAX_FRAME_HEIGHT = 1200;
     private final Context context;
     private final CameraConfigurationManager configManager;
     private static Camera camera;
@@ -195,7 +197,7 @@ public final class CameraManager {
      * @return The rectangle to draw on screen in window coordinates.
      * 把screenResolution的x和y互换，因为是由横屏转换为竖屏的。
      */
-    public Rect getFramingRect() {
+    /*public Rect getFramingRect() {
         if (framingRect == null) {
             if (camera == null) {
                 return null;
@@ -231,6 +233,41 @@ public final class CameraManager {
             Log.d(TAG, "Calculated framing rect: " + framingRect);
         }
         return framingRect;
+    }*/
+
+    public synchronized Rect getFramingRect() {
+        if (framingRect == null) {
+            if (camera == null) {
+                return null;
+            }
+            // 获取屏幕的尺寸像素
+            Point screenResolution = configManager.getScreenResolution();
+            if (screenResolution == null) {
+                // Called early, before init even finished
+                return null;
+            }
+            // 根据屏幕的宽高找到最合适的矩形框宽高值
+            int width = findDesiredDimensionInRange(screenResolution.x, MIN_FRAME_WIDTH, MAX_FRAME_WIDTH);
+            int height = findDesiredDimensionInRange(screenResolution.y, MIN_FRAME_HEIGHT, MAX_FRAME_HEIGHT);
+
+            // 取屏幕中间的，宽为width，高为height的矩形框
+            int leftOffset = (screenResolution.x - width) / 2;
+            int topOffset = (screenResolution.y - height) / 2;
+            framingRect = new Rect(leftOffset, topOffset, leftOffset + width, topOffset + height);
+            Log.d(TAG, "Calculated framing rect: " + framingRect);
+        }
+        return framingRect;
+    }
+
+    private static int findDesiredDimensionInRange(int resolution, int hardMin, int hardMax) {
+        int dim = 5 * resolution / 8; // Target 5/8 of each dimension
+        if (dim < hardMin) {
+            return hardMin;
+        }
+        if (dim > hardMax) {
+            return hardMax;
+        }
+        return dim;
     }
 
     private int dp2px(float dp) {
@@ -248,25 +285,30 @@ public final class CameraManager {
             if (framingRect == null) {
                 return null;
             }
+            // 获取相机分辨率和屏幕分辨率
             Rect rect = new Rect(framingRect);
             Point cameraResolution = configManager.getCameraResolution();
             Point screenResolution = configManager.getScreenResolution();
             //还原之前的改动，还原到最初的逻辑
             if (cameraResolution != null && screenResolution != null) {
-                int cameraX = cameraResolution.x;
-                int screenX = screenResolution.x;
-                rect.left = rect.left * cameraX / screenX;
-                rect.right = rect.right * cameraX / screenX;
-                int cameraY = cameraResolution.y;
-                int screenY = screenResolution.y;
-                rect.top = rect.top * cameraY / screenY;
-                rect.bottom = rect.bottom * cameraY / screenY;
-                Log.d(TAG, "camera " + cameraX + ", " + cameraY + ", screen " + screenX + ", " + screenY);
-//    	  rect.left = rect.left * cameraResolution.y / screenResolution.x;
-//    	  rect.right = rect.right * cameraResolution.y / screenResolution.x;
-//    	  rect.top = rect.top * cameraResolution.x / screenResolution.y;
-//    	  rect.bottom = rect.bottom * cameraResolution.x / screenResolution.y;
+
+//                int cameraX = cameraResolution.x;
+//                int screenX = screenResolution.x;
+//                rect.left = rect.left * cameraX / screenX;
+//                rect.right = rect.right * cameraX / screenX;
+//                int cameraY = cameraResolution.y;
+//                int screenY = screenResolution.y;
+//                rect.top = rect.top * cameraY / screenY;
+//                rect.bottom = rect.bottom * cameraY / screenY;
+//                Log.d(TAG, "camera " + cameraX + ", " + cameraY + ", screen " + screenX + ", " + screenY);
+
+                return null;
             }
+            // 根据相机分辨率和屏幕分辨率的比例对屏幕中央聚焦框进行调整
+            rect.left = rect.left * cameraResolution.y / screenResolution.x;
+            rect.right = rect.right * cameraResolution.y / screenResolution.x;
+            rect.top = rect.top * cameraResolution.x / screenResolution.y;
+            rect.bottom = rect.bottom * cameraResolution.x / screenResolution.y;
             framingRectInPreview = rect;
         }
         return framingRectInPreview;
@@ -309,17 +351,21 @@ public final class CameraManager {
      * @return A PlanarYUVLuminanceSource instance.
      */
     //扫描识别优化前的代码
-//    public PlanarYUVLuminanceSource buildLuminanceSource(byte[] data, int width, int height) {
-//        Rect rect = getFramingRectInPreview();
-//        if (rect == null) {
-//            return null;
-//        }
-//        // Go ahead and assume it's YUV rather than die.
-//        return new PlanarYUVLuminanceSource(data, width, height, rect.left, rect.top,
-//                rect.width(), rect.height(), reverseImage);
-//    }
+    public PlanarYUVLuminanceSource buildLuminanceSource(byte[] data, int width, int height) {
+        //取得预览框内的矩形
+        Rect rect = getFramingRectInPreview();
+        if (rect == null) {
+            return null;
+        }
+        // Go ahead and assume it's YUV rather than die.
+        return new PlanarYUVLuminanceSource(data, width, height, 0, 0, rect.width(), rect.height(), false);
+    }
+
+
+   /*
     //扫描识别优化后的代码
     public PlanarYUVLuminanceSource buildLuminanceSource(byte[] data, int width, int height) {
+        // 取得预览框内的矩形
         Rect rect = getFramingRectInPreview();
         int previewFormat = configManager.getPreviewFormat();
         String previewFormatString = configManager.getPreviewFormatString();
@@ -340,5 +386,5 @@ public final class CameraManager {
         }
         throw new IllegalArgumentException("Unsupported picture format: " +
                 previewFormat + '/' + previewFormatString);
-    }
+    }*/
 }
