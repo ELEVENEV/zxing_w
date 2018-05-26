@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">BOOK</string>
+    <string name="app_name">Start interface</string>
     <string name="icon_call">Call</string>
     <string name="nav_friends">Friends</string>
     <string name="icon_location">Location</string>

@@ -9,7 +9,7 @@ buildscript {
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
-        classpath "com.tencent.bugly:tinker-support:1.1.1"
+        classpath "com.tencent.bugly:tinker-support:latest.release"
     }
 
     ext {
@@ -25,7 +25,6 @@ allprojects {
     repositories {
 //        google()
         maven { url 'https://maven.google.com' }
-        maven { url 'https://jitpack.io' }
         jcenter()
     }
 }

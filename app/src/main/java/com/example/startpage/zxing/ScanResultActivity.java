@@ -83,8 +83,8 @@ public class ScanResultActivity extends AppCompatActivity {
                     //todo something
                     Toast.makeText(this, "解析到的内容为" + isbn, Toast.LENGTH_LONG).show();
                     if (isbn.contains("http")) {
-                        Intent intent = new Intent(this, WebViewActivity1.class);
-                        intent.putExtra(WebViewActivity1.RESULT, isbn);
+                        Intent intent = new Intent(this, WebViewActivity.class);
+                        intent.putExtra(WebViewActivity.RESULT, isbn);
                         startActivity(intent);
                     }
                 }
