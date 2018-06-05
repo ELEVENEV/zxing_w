@@ -7,3 +7,6 @@
 /build
 /captures
 .externalNativeBuild
+./debug
+.idea/caches/build_file_checksums.ser
+LibZxing/build/
