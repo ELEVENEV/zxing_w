@@ -1,1 +1,1 @@
-include ':app', ':LibZxing'
+include ':app', ':LibZxing', ':floatwindow'

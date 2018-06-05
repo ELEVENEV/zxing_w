@@ -1,5 +1,7 @@
 package com.example.startpage;
 
+import android.widget.ImageView;
+
 import com.tencent.tinker.loader.app.TinkerApplication;
 import com.tencent.tinker.loader.shareutil.ShareConstants;
 

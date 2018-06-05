@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/LibZxing/LibZxing.iml" filepath="$PROJECT_DIR$/LibZxing/LibZxing.iml" />
       <module fileurl="file://$PROJECT_DIR$/StartPage_Test.iml" filepath="$PROJECT_DIR$/StartPage_Test.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/floatwindow/floatwindow.iml" filepath="$PROJECT_DIR$/floatwindow/floatwindow.iml" />
     </modules>
   </component>
 </project>

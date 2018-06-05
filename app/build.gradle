@@ -118,6 +118,7 @@ dependencies {
 
     compile 'com.jaeger.statusbarutil:library:1.4.0'
     compile project(path: ':LibZxing')
+    compile project(':floatwindow')
 }
 
 // 依赖插件脚本
