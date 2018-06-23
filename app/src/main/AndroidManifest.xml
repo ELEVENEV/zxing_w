@@ -20,7 +20,7 @@
     <application
         android:name=".MyApplication1"
         android:allowBackup="false"
-        android:icon="@drawable/start_icon"
+        android:icon="@drawable/digital_media_art_button_1024_1024"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
