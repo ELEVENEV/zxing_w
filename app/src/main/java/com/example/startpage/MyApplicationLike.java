@@ -15,7 +15,6 @@ import android.view.animation.BounceInterpolator;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.alibaba.mtl.appmonitor.AppMonitor;
 import com.alibaba.sdk.android.feedback.impl.FeedbackAPI;
 import com.alibaba.sdk.android.feedback.util.ErrorCode;
 import com.alibaba.sdk.android.feedback.util.FeedbackErrorCallback;
@@ -37,7 +36,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.Callable;
 
-import static android.support.v4.content.ContextCompat.startActivity;
 
 /**
  * Created by Administrator on 2017/5/26 0026.
@@ -198,13 +196,6 @@ public class MyApplicationLike extends DefaultApplicationLike {
         //设置标题栏"历史反馈"的字号，需要将控制台中此字号设置为0
         FeedbackAPI.setHistoryTextSize(20);
 
-
-        // 验证代码
-        HashMap<String, String> map = new HashMap<String, String>();
-        map.put("debug_api_url","http://muvp.alibaba-inc.com/online/UploadRecords.do");
-        map.put("debug_key","aliyun_sdk_utDetection");
-        //map.put("debug_sampling_option", "true");
-        AppMonitor.turnOnRealTimeDebug(map);
 
     }
 

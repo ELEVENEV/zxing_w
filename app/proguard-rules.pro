@@ -32,3 +32,13 @@
 #########zxing##########
 -keep class com.android.** {*;}
 -keep class com.google.** {*;}
+
+#########移动反馈#########
+-keep class com.taobao.** {*;}
+-keep class com.alibaba.** {*;}
+-dontwarn com.taobao.**
+-dontwarn com.alibaba.**
+-keep class com.ut.** {*;}
+-dontwarn com.ut.**
+-keep class com.ta.** {*;}
+-dontwarn com.ta.**

@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.2"
+    buildToolsVersion "27.0.3"
     defaultConfig {
         applicationId "com.example.startpage1"
         minSdkVersion 19
@@ -98,11 +98,11 @@ dependencies {
     compile 'com.just.agentweb:agentweb:2.0.1'
     compile 'com.lcodecorex:tkrefreshlayout:1.0.7'
 
-    compile files('libs/commons-codec-1.10.jar')
-    compile(name: 'alicloud-android-feedback-3.1.0', ext: 'aar')
-    compile files('libs/app-monitor-sdk-2.5.1.1_for_bc_proguard.jar')
-    compile files('libs/utdid4all-1.1.5.3_proguard.jar')
-    compile files('libs/alicloud-android-utils-1.0.3.jar')
+    //移动反馈
+    compile 'com.aliyun.ams:alicloud-android-feedback:3.1.2'
+    compile 'com.aliyun.ams:alicloud-android-utdid:1.1.5.3'
+    compile 'com.aliyun.ams:alicloud-android-ut:5.1.0'
+    compile 'com.aliyun.ams:alicloud-android-utils:1.1.1'
 
     compile 'com.umeng.analytics:analytics:latest.integration'
 
