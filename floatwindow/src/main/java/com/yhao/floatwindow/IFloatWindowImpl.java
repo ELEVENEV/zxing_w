@@ -203,16 +203,20 @@ public class IFloatWindowImpl extends IFloatWindow {
                                 cancelAnimator();
                                 break;
                             case MotionEvent.ACTION_MOVE:
-                                changeX = event.getRawX() - lastX;
-                                changeY = event.getRawY() - lastY;
-                                newX = (int) (mFloatView.getX() + changeX);
-                                newY = (int) (mFloatView.getY() + changeY);
-                                mFloatView.updateXY(newX, newY);
-                                if (mB.mViewStateListener != null) {
-                                    mB.mViewStateListener.onPositionUpdate(newX, newY);
+                                if (!isOutOfRange(event.getRawX(), event.getRawY())) {
+                                    changeX = event.getRawX() - lastX;
+                                    changeY = event.getRawY() - lastY;
+                                    newX = (int) (mFloatView.getX() + changeX);
+                                    newY = (int) (mFloatView.getY() + changeY);
+                                    mFloatView.updateXY(newX, newY);
+                                    if (mB.mViewStateListener != null) {
+                                        mB.mViewStateListener.onPositionUpdate(newX, newY);
+                                    }
+                                    lastX = event.getRawX();
+                                    lastY = event.getRawY();
                                 }
-                                lastX = event.getRawX();
-                                lastY = event.getRawY();
+//                                lastX = event.getRawX();
+//                                lastY = event.getRawY();
                                 break;
                             case MotionEvent.ACTION_UP:
                                 upX = event.getRawX();
@@ -298,5 +302,24 @@ public class IFloatWindowImpl extends IFloatWindow {
             mAnimator.cancel();
         }
     }
-
+    /**
+     * 判断是否超出范围，根据自己需求设置比例大小，我自己设置的是0.025和0.975
+     * @param x event.getRawX()
+     * @param y event.getRawY()
+     * @return
+     */
+    private boolean isOutOfRange(float x, float y) {
+        boolean b = true;
+        float screenWidth = Util.getScreenWidth(mB.mApplicationContext);
+        float screenHeight = Util.getScreenHeight(mB.mApplicationContext);
+        float widthRate, heightRate;
+        widthRate = (screenWidth - x) / screenWidth;
+        heightRate = (screenHeight - y) / screenHeight;
+        if (widthRate > 0.05 && widthRate < 0.95 && heightRate > 0.05 && heightRate < 0.95) {
+            b = false;
+        } else {
+            b = true;
+        }
+        return b;
+    }
 }

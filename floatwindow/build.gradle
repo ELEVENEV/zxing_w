@@ -3,10 +3,11 @@ apply plugin: 'com.android.library'
 android {
     compileSdkVersion 26
     buildToolsVersion '27.0.3'
+    publishNonDefault true
 
 
     defaultConfig {
-        minSdkVersion 18
+        minSdkVersion 19
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -14,6 +15,9 @@ android {
 
     }
 
+    lintOptions {
+        abortOnError false
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -36,3 +40,42 @@ dependencies {
 //apply plugin: 'com.github.dcendents.android-maven'
 //// Your Group
 //group='com.github.yhaolpz'
+
+
+//// 方法一
+//def _BASENAME = "floatwindow";
+//def _VERSION = "_V1.0";
+//def _DestinationPath = "build"; //生成jar包的位置
+//def zipFile = file('build/intermediates/packaged-classes/debug/classes.jar'); //待打包文件位置
+//
+//task deleteBuild(type:Delete){
+//    delete _DestinationPath + _BASENAME + _VERSION + ".jar"
+//}
+//task makeJar(type:Jar){
+//    from zipTree(zipFile)
+//    from fileTree(dir:'src/main',includes:['assets/**']) //将assets目录打入jar包
+//    baseName = _BASENAME + _VERSION
+//    destinationDir = file(_DestinationPath)
+//}
+//makeJar.dependsOn(deleteBuild, build)
+
+// 方法二  这个方法可以解决com.android.dex.DexException: Multiple dex files define 此类的错误
+// 排除我们需要的class除外的其他不必要的文件 如 BuildConfig.class/R.class
+task clearJar(type: Delete) {
+    delete 'build/libs/floatwindow.jar'
+    delete 'libs/floatwindow.jar'
+}
+//打包任务
+task makeJar(type: Jar) {
+    //指定生成的jar名
+    baseName 'floatwindow'
+    //从哪里打包class文件
+    from('build/intermediates/classes/release/com/yhao/floatwindow')
+    //打包到jar后的目录结构
+    into('com/yhao/floatwindow/')
+    //去掉不需要打包的目录和文件
+    exclude('BuildConfig.class', 'R.class')
+    //去掉R$开头的文件
+    exclude { it.name.startsWith('R$'); }
+}
+makeJar.dependsOn(clearJar, build)
